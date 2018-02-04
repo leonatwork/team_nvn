@@ -29,12 +29,8 @@ while(cap.isOpened()):
     # check OpenCV version to avoid unpacking error
     (version, _, _) = cv2.__version__.split('.')
 
-    if version == '3':
-        image, contours, hierarchy = cv2.findContours(thresh1.copy(), \
-               cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-    elif version == '2':
-        contours, hierarchy = cv2.findContours(thresh1.copy(),cv2.RETR_TREE, \
-               cv2.CHAIN_APPROX_NONE)
+    image, contours, hierarchy = cv2.findContours(thresh1.copy(), \
+        cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
 
     # find contour with max area
     cnt = max(contours, key = lambda x: cv2.contourArea(x))
