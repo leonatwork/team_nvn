@@ -1,9 +1,27 @@
 import cv2
 import numpy as np
 import math
-
+import random
 
 capture = cv2.VideoCapture(0)
+
+k = 0
+comp_move = [" "," "," "," "," "]
+for i in range(5):
+    rand_num = random.randint(1,3)
+    if rand_num == 1:
+        comp_move[k] = "Rock"
+    elif rand_num == 2:
+        comp_move[k] = "Paper"
+    elif rand_num == 3:
+        comp_move[k] = "Scissor"
+    k = k + 1
+
+k = 0
+for i in range(5):
+    print(comp_move[k])
+    k = k + 1
+
 while(capture.isOpened()):
     # read image
     ret, img = capture.read()
@@ -75,11 +93,11 @@ while(capture.isOpened()):
     elif count_defects == 4:
         cv2.putText(img,"Paper", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
     elif count_defects == 0:
-        cv2.putText(img, "Rock", (5, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, 2)
+        cv2.putText(img, "Rock", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
     else:
         cv2.putText(img,"Scissor", (50, 50),\
                     cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
-
+    cv2.putText(img,comp_move[2], (300, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
     # show appropriate images in windows
     cv2.imshow('Gesture', img)
 
