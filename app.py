@@ -99,8 +99,6 @@ while(cap.isOpened()):
 
     # show appropriate images in windows
     cv2.imshow('Gesture', img)
-    all_img = np.hstack((drawing, crop_img))
-    cv2.imshow('Contours', all_img)
 
     k = cv2.waitKey(10)
     if k == 27:
