@@ -96,6 +96,12 @@ while(capture.isOpened()):
         file = open("testfile.txt","w")
         file.write("Scissor")
         file.close()
+    file = open("score.txt","r")
+    move = file.readline()
+    file.close()
+    cv2.putText(img,"User : "+move[0], (1,350), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
+    cv2.putText(img,"PC : "+move[1], (535,350), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
+
 
     cv2.putText(img, "Make sure your palm is inside the box", (1,400), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
     cv2.putText(img, " The background should be plane", (40,450), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
