@@ -28,10 +28,13 @@ for i in range(5):
     print("\nPlay\n")
     choice='a'
     while(choice!='y'):
+        print("\nYour move => ")
+        time.sleep(1)
         file = open("testfile.txt","r")
         move = file.readline()
         file.close()
-        print("\nYour move => "+move)
+        print(move)
+        time.sleep(1)
         choice = input("\nPress Y if its correct : ")
         if choice=='y':
             user_move[k]=move
@@ -62,15 +65,15 @@ for i in range(5):
                 scUser = scUser + 1
                 time.sleep(1)
                 print("\nYou win")
+            else:
+                print("\nDraw")
             k = k+1
-            input()
-k = 0
-for i in range(5):
-    print(user_move[k]+" Vs "+comp_move[k])
-    k = k + 1
+            time.sleep(2)
 
 
 if scUser<scComp:
-    print("Game over")
+    print("\nGame over...You lost :(")
+elif scUser==scComp:
+    print("\nGame draw")
 else:
-    print("Congratulations!!")
+    print("\nCongratulations!! You won :)")
