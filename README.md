@@ -1,2 +1,2 @@
-# team_nvn
+# Rock Paper Scissor
 Amoc '18 project
