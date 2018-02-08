@@ -3,7 +3,7 @@
 ## About
 
 High Five is a Python-based game developed by Team NVN under ACM AMOC-2018. 
-It’s a five set “Stone-Paper-Scissors” game where the webcam records your hand gesture and the code compares it with a random input by the computer. The game is all based on how lucky you are !
+It’s a five set “Rock-Paper-Scissors” game where the webcam records your hand gesture and the code compares it with a random input by the computer. The game is all based on how lucky you are !
 
 ## Installation
 
@@ -56,5 +56,5 @@ $ python3 game.py
 
 - Enter your name to begin the game
 - Make sure your palm is inside the box shown on the game screen
-- Prefer a plain bacground
+- Prefer a plain background
 - Make sure that the background colour doesn't match your skin color
