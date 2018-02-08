@@ -23,11 +23,16 @@ for i in range(5):
 scUser = 0
 scComp = 0
 
-print("---Welcome---\n")
+name = input("\nEnter your name : ")
+
+file = open("text/user.txt","w")
+file.write(name)
+file.close()
+
 
 k=0
 for i in range(5):
-    file = open("score.txt","w")
+    file = open("text/score.txt","w")
     file.write(str(scUser))
     file.write(str(scComp))
     file.close()
@@ -41,7 +46,7 @@ for i in range(5):
             print(m)
             time.sleep(1)
             m = m - 1
-        file = open("testfile.txt","r")
+        file = open("text/testfile.txt","r")
         move = file.readline()
         file.close()
         print("\nYour move => "+move)
@@ -95,7 +100,7 @@ for i in range(5):
                 print("\033[H\033[J")
             k = k+1
             time.sleep(2)
-file = open("score.txt","w")
+file = open("text/score.txt","w")
 file.write(str(scUser))
 file.write(str(scComp))
 file.close()

@@ -69,38 +69,41 @@ while(capture.isOpened()):
     if count_defects == 1:
         cv2.putText(img,"Scissor", (70, 50), cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Scissor"
-        file = open("testfile.txt","w")
+        file = open("text/testfile.txt","w")
         file.write("Scissor")
         file.close()
     elif count_defects == 3:
         cv2.putText(img,"Paper", (70, 50), cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Paper"
-        file = open("testfile.txt","w")
+        file = open("text/testfile.txt","w")
         file.write("Paper")
         file.close()
     elif count_defects == 4:
         cv2.putText(img,"Paper", (70, 50), cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Paper"
-        file = open("testfile.txt","w")
+        file = open("text/testfile.txt","w")
         file.write("Paper")
         file.close()
     elif count_defects == 0:
         cv2.putText(img, "Rock", (70, 50), cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Rock"
-        file = open("testfile.txt","w")
+        file = open("text/testfile.txt","w")
         file.write("Rock")
         file.close()
     else:
         cv2.putText(img,"Scissor", (70, 50),cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Scissor"
-        file = open("testfile.txt","w")
+        file = open("text/testfile.txt","w")
         file.write("Scissor")
         file.close()
-    file = open("score.txt","r")
+    file = open("text/score.txt","r")
     move = file.readline()
     file.close()
-    cv2.putText(img,"User : "+move[0], (1,350), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
-    cv2.putText(img,"PC : "+move[1], (535,350), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
+    file = open("text/user.txt","r")
+    name = file.readline()
+    file.close()
+    cv2.putText(img,name +":" +move[0], (10,350), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
+    cv2.putText(img,"PC:"+move[1], (535,350), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
 
 
     cv2.putText(img, "Make sure your palm is inside the box", (1,400), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
