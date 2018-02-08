@@ -95,6 +95,10 @@ for i in range(5):
                 print("\033[H\033[J")
             k = k+1
             time.sleep(2)
+file = open("score.txt","w")
+file.write(str(scUser))
+file.write(str(scComp))
+file.close()
 k=0
 for i in range(5):
     print("\n"+user_move[k]+" Vs "+comp_move[k])
