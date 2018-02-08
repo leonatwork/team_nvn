@@ -1,11 +1,11 @@
 # High Five
 
-##About
+## About
 
 High Five is a Python-based game developed by Team NVN under ACM AMOC-2018. 
 It’s a five set “Stone-Paper-Scissors” game where the webcam records your hand gesture and the code compares it with a random input by the computer. The game is all based on how lucky you are !
 
-##Installation
+## Installation
 
 For Linux Platform : 
 
@@ -18,43 +18,43 @@ If you are using Ubuntu 16.10 or newer, then you can easily install Python 3.6 w
 $ sudo apt-get update
 $ sudo apt-get install python3.6
 ```
-##Installing OpenCV
+## Installing OpenCV
 
 Install python package OpenCV with the following commands :
 ```
 $ sudo apt-get install python-opencv
 ```
 
-##Installing NumPy
+## Installing NumPy
 
 To install NumPy on Ubuntu, run the following command:
 ```
 $ sudo apt-get install python-numpy
 ```
 
-##How to Run the program
+## How to Run the program
 
--Clone the repo
--Switch to terminal
--Open anither termainal window
+- Clone the repo
+- Switch to terminal
+- Open another terminal window
 (In terminal 1 and terminal 2)
 ```
 $ cd team_nvn
 ```
--Open the camera with the following command :
+- Open the camera with the following command :
 (In terminal 1)
 ```
 $ python3 cam.py
 ```
--Open the game :
+- Open the game :
 (in terminal 2)
 ```
 $ python3 game.py
 ```
 
-##How to play
+## How to play
 
--Enter your name to begin the game
--Make sure your palm is inside the box shown on the game screen
--Prefer a plain bacground
--Make sure that the background colour doesn't match your skin color
+- Enter your name to begin the game
+- Make sure your palm is inside the box shown on the game screen
+- Prefer a plain bacground
+- Make sure that the background colour doesn't match your skin color
