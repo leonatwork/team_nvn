@@ -1,7 +1,7 @@
 import random
 import time
 
-
+print("\033[H\033[J")
 print("/********************************************************/\n")
 print("                   Rock-Paper-Scissor                   \n")
 print("/********************************************************/\n")
@@ -46,28 +46,43 @@ for i in range(5):
                 scComp = scComp + 1
                 time.sleep(1)
                 print("\nYou lose")
+                time.sleep(1)
+                print("\033[H\033[J")
             elif user_move[k]=="Scissor" and comp_move[k]=="Paper":
                 scUser = scUser + 1
                 time.sleep(1)
                 print("\nYou win")
+                time.sleep(1)
+                print("\033[H\033[J")
             elif user_move[k]=="Rock" and comp_move[k]=="Paper":
                 scComp = scComp + 1
                 time.sleep(1)
                 print("\nYou lose")
+                time.sleep(1)
+                print("\033[H\033[J")
             elif user_move[k]=="Rock" and comp_move[k]=="Scissor":
                 scUser = scUser + 1
                 time.sleep(1)
                 print("\nYou win")
+                time.sleep(1)
+                print("\033[H\033[J")
             elif user_move[k]=="Paper" and comp_move[k]=="Scissor":
                 scComp = scComp + 1
                 time.sleep(1)
                 print("\nYou lose")
+                time.sleep(1)
+                print("\033[H\033[J")
             elif user_move[k]=="Paper" and comp_move[k]=="Rock":
                 scUser = scUser + 1
                 time.sleep(1)
                 print("\nYou win")
+                time.sleep(1)
+                print("\033[H\033[J")
             else:
+                time.sleep(1)
                 print("\nDraw")
+                time.sleep(1)
+                print("\033[H\033[J")
             k = k+1
             time.sleep(2)
 
