@@ -1,4 +1,5 @@
 import random
+import time
 
 print("/********************************************************/\n")
 print("                   Rock-Paper-Scissor                   \n")
@@ -34,25 +35,32 @@ for i in range(5):
         choice = input("\nPress Y if its correct : ")
         if choice=='y':
             user_move[k]=move
+            time.sleep(.500)
             print("\nPCs move => "+comp_move[k])
             print("\n"+user_move[k]+" Vs "+comp_move[k])
             if user_move[k]=="Scissor" and comp_move[k]=="Rock":
                 scComp = scComp + 1
+                time.sleep(1)
                 print("\nYou lose")
             elif user_move[k]=="Scissor" and comp_move[k]=="Paper":
                 scUser = scUser + 1
+                time.sleep(1)
                 print("\nYou win")
             elif user_move[k]=="Rock" and comp_move[k]=="Paper":
                 scComp = scComp + 1
+                time.sleep(1)
                 print("\nYou lose")
             elif user_move[k]=="Rock" and comp_move[k]=="Scissor":
                 scUser = scUser + 1
+                time.sleep(1)
                 print("\nYou win")
             elif user_move[k]=="Paper" and comp_move[k]=="Scissor":
                 scComp = scComp + 1
+                time.sleep(1)
                 print("\nYou lose")
             elif user_move[k]=="Paper" and comp_move[k]=="Rock":
                 scUser = scUser + 1
+                time.sleep(1)
                 print("\nYou win")
             k = k+1
             input()
