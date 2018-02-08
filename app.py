@@ -2,11 +2,13 @@ import cv2
 import numpy as np
 import math
 import random
+import time
 
 capture = cv2.VideoCapture(0)
 
 k = 0
 comp_move = [" "," "," "," "," "]
+user_move = [" "," "," "," "," "]
 for i in range(5):
     rand_num = random.randint(1,3)
     if rand_num == 1:
@@ -17,10 +19,20 @@ for i in range(5):
         comp_move[k] = "Scissor"
     k = k + 1
 
+print("/********************************************************/\n")
+print("                   Rock-Paper-Scissor                   \n")
+print("/********************************************************/\n")
 k = 0
 for i in range(5):
     print(comp_move[k])
     k = k + 1
+print("--------")
+
+# Score variables initialization
+scUser = 0
+scComp = 0
+
+flag = 0
 
 while(capture.isOpened()):
     # read image
@@ -80,10 +92,16 @@ while(capture.isOpened()):
             count_defects += 1
             cv2.circle(crop_img, far, 1, [0,255,0], -1)
         dist = cv2.pointPolygonTest(cnt,far,True)
-
         # draw a line from start to end i.e. the convex points (finger tips)
         #cv2.line(crop_img,start, end, [255,255,255], 2)
         #cv2.circle(crop_img,far,5,[0,255,255],-1)
+
+
+
+
+
+
+
 
     # define actions required
     if count_defects == 1:
@@ -97,10 +115,97 @@ while(capture.isOpened()):
     else:
         cv2.putText(img,"Scissor", (50, 50),\
                     cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
-    cv2.putText(img,comp_move[2], (300, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
-    # show appropriate images in windows
+    cv2.putText(img,comp_move[0], (300, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+    cv2.putText(img,comp_move[1], (300, 100), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+    cv2.putText(img,comp_move[2], (300, 150), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        #time.sleep(2)
     cv2.imshow('Gesture', img)
+
+
+    if flag==1:
+        print("---Welcome---\n")
+        k=0
+        for i in range(5):
+            print("Make your play\n")
+            choice='a'
+            while(choice!='y'):
+                if count_defects == 1:
+                    move="Scissor"
+                elif count_defects == 3:
+                    move="Paper"
+                elif count_defects == 4:
+                    move="Paper"
+                elif count_defects == 0:
+                    move="Rock"
+                else:
+                    move="Scissor"
+                print("Your move : "+move)
+                choice = input("\nPress Y if its correct : ")
+                if choice=='y':
+                    user_move[k]=move
+                    k = k+1
+        k = 0
+        for i in range(5):
+            print(user_move[k])
+            k = k + 1
+    if flag==0:
+        flag=1
+    else:
+        flag=0
+
+    # show appropriate images in windows
+
+
+
 
     k = cv2.waitKey(10)
     if k == 27:
         break
+
+
+
+# k = 0
+# user_move = [" "," "," "," "," "]
+# for i in range(5):
+#     if count_defects == 1:
+#         user_move[k]="Scissor"
+#     elif count_defects == 3:
+#         user_move[k]="Paper"
+#     elif count_defects == 4:
+#         user_move[k]="Paper"
+#     elif count_defects == 0:
+#         user_move[k]="Rock"
+#     else:
+#         user_move[k]="Scissor"
+#     k = k + 1
+#     time.sleep(1)
+
+
+# k = 0
+# for i in range(5):
+#     print(user_move[k])
+#     k = k + 1
+
+# k=0
+# for i in range(5):
+#     if user_move[k]=="Scissor" and comp_move[k]=="Rock":
+#         scComp = scComp + 1
+#     elif user_move[k]=="Scissor" and comp_move[k]=="Paper":
+#         scUser = scUser + 1
+#     elif user_move[k]=="Rock" and comp_move[k]=="Paper":
+#         scComp = scComp + 1
+#     elif user_move[k]=="Rock" and comp_move[k]=="Scissor":
+#         scUser = scUser + 1
+#     elif user_move[k]=="Paper" and comp_move[k]=="Scissor":
+#         scComp = scComp + 1
+#     elif user_move[k]=="Paper" and comp_move[k]=="Rock":
+#         scUser = scUser + 1
+#     k = k + 1
+
+# print("-----------")
+
+
+# if scUser<scComp:
+#     print("You lose")
+# else:
+#     print("You win")
