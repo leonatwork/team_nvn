@@ -1,5 +1,8 @@
 import random
 import time
+import script1
+
+system('python3 script1.py')
 
 print("/********************************************************/\n")
 print("                   Rock-Paper-Scissor                   \n")
