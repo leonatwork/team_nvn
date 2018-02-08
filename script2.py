@@ -28,13 +28,18 @@ k=0
 for i in range(5):
     print("\nPlay\n")
     choice='a'
+    time.sleep(.800)
     while(choice!='y'):
-        print("\nYour move => ")
-        time.sleep(1)
+        m = 3
+        for j in range(3):
+            print("\033[H\033[J")
+            print(m)
+            time.sleep(1)
+            m = m - 1
         file = open("testfile.txt","r")
         move = file.readline()
         file.close()
-        print(move)
+        print("\nYour move => "+move)
         time.sleep(1)
         choice = input("\nPress Y if its correct : ")
         if choice=='y':

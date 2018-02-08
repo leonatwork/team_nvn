@@ -2,10 +2,7 @@ import cv2
 import numpy as np
 import math
 
-
-
 capture = cv2.VideoCapture(0)
-
 
 while(capture.isOpened()):
     # read image
@@ -68,56 +65,43 @@ while(capture.isOpened()):
         # draw a line from start to end i.e. the convex points (finger tips)
         #cv2.line(crop_img,start, end, [255,255,255], 2)
         #cv2.circle(crop_img,far,5,[0,255,255],-1)
-
-
-
-
-
-
-
-
     # define actions required
     if count_defects == 1:
-        cv2.putText(img,"Scissor", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        cv2.putText(img,"Scissor", (70, 50), cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Scissor"
         file = open("testfile.txt","w")
         file.write("Scissor")
         file.close()
     elif count_defects == 3:
-        cv2.putText(img,"Paper", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        cv2.putText(img,"Paper", (70, 50), cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Paper"
         file = open("testfile.txt","w")
         file.write("Paper")
         file.close()
     elif count_defects == 4:
-        cv2.putText(img,"Paper", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        cv2.putText(img,"Paper", (70, 50), cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Paper"
         file = open("testfile.txt","w")
         file.write("Paper")
         file.close()
     elif count_defects == 0:
-        cv2.putText(img, "Rock", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        cv2.putText(img, "Rock", (70, 50), cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Rock"
         file = open("testfile.txt","w")
         file.write("Rock")
         file.close()
     else:
-        cv2.putText(img,"Scissor", (50, 50),\
-                    cv2.FONT_HERSHEY_SIMPLEX, 2, 2)
+        cv2.putText(img,"Scissor", (70, 50),cv2.FONT_HERSHEY_DUPLEX, 2, 2)
         str="Scissor"
         file = open("testfile.txt","w")
         file.write("Scissor")
         file.close()
-    cv2.imshow('Gesture', img)
+
+    cv2.putText(img, "Make sure your palm is inside the box", (1,400), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
+    cv2.putText(img, " The background should be plane", (40,450), cv2.FONT_HERSHEY_DUPLEX, 1,.5)
 
 
-
-
-    # show appropriate images in windows
-
-
-
-
+    cv2.imshow('Rock-Paper-Scissor', img)
     k = cv2.waitKey(10)
     if k == 27:
         break
